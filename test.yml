@@ -1,0 +1,17 @@
+- name: Creating an user list 
+  host: all
+  gather_facts: true
+  vars: 
+    packages:
+    - ssl
+    - tls
+    - ansible
+    - dev
+    - stage
+    - deploy
+  tasks:
+   
+   - name: Updating and infra and pass
+     debug:
+       msg: "{{ packages }}"
+       

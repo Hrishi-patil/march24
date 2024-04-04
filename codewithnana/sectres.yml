@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: Secret  
+metadata: 
+  name: mysecert-manifest
+type: Opaque
+data:
+ username: cnVzaGkNCg==
+ password: cmVkaGF0DQo=

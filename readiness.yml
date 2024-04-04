@@ -1,0 +1,26 @@
+apiVersion: v1 
+kind: Pod 
+metadata: 
+ name: readi 
+spec: 
+ containers: 
+ - name: rediness 
+   image: rushikeshp/apacheapp
+   args: 
+   - /bin/bash
+   - -c 
+   - touch /tmp/healthy; sleep 60; rm -rf /tmp/healthy; sleep 600
+   livenessProbe:
+    exec: 
+     command: 
+     - cat 
+     - /tmp/healthy 
+    initialDelaySeconds: 15
+    periodSeconds: 5
+   readinessProbe:
+    exec:
+      command: 
+      - cat 
+      - /tmp/healthy 
+    initialDelaySeconds: 15
+    periodSeconds: 5
